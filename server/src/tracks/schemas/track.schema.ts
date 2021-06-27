@@ -17,7 +17,7 @@ export class Track {
   text: string;
 
   @Prop()
-  picture: string;
+  image: string;
 
   @Prop()
   audio: string;
