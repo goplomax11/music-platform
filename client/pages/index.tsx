@@ -17,13 +17,13 @@ const App = () => {
         <style jsx>
             {`
                 .center {
-                    display:flex;
+                    display:flex;   
                     align-items:center;
-                    justify-content:center;
                     flex-direction:column;
                     margin-top: 200px
 
                 }
+                
             `}
         </style>
     </>
