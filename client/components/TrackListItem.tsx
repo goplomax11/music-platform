@@ -1,7 +1,7 @@
-import { Box, Button, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
-import { Delete, PlayCircleOutline } from "@material-ui/icons";
+import { PlayCircleOutline } from "@material-ui/icons";
 import PauseCircleFilledOutlinedIcon from "@material-ui/icons/PauseCircleFilledOutlined";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { Grid } from "@material-ui/core";
