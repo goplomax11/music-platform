@@ -1,12 +1,19 @@
-import { Button, Card, Container, Grid, TextField } from "@material-ui/core";
+import { Button, Grid, TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import StepWrapper from "../../components/StepWrapper";
-import { TextFields } from "@material-ui/icons";
 import FileUpload from "../../components/FileUpload";
+import { useRouter } from "next/router";
 
 const Сreate = () => {
     const [activeStep, setActiveStep] = useState(0);
+    const [trackName, setTrackName] = useState('');
+    const [trackArtist, setTrackArtist] = useState('');
+    const [trackText, setTrackText] = useState('');
+    const [image, setImage] = useState();
+    const [audio, setAudio] = useState();
+
+    const router = useRouter();
 
     const back = () => {
         if (activeStep > 0) {
@@ -21,28 +28,35 @@ const Сreate = () => {
         }
     };
 
+    const send = () => {
+        router.push('/tracks')
+    }
+
+    console.log(image)
+
     return (
         <MainLayout>
             <StepWrapper activeStep={activeStep}>
                 {activeStep === 0 && (
                     <Grid container style={{ padding: "20px" }} direction="column">
-                        <TextField label="Введите название трека" />
-                        <TextField label="Введите исполнителя" />
-                        <TextField multiline label="Введите текс песни" />
+                        <TextField onChange={(e) => setTrackName(e.target.value)} value={trackName} label="Введите название трека" />
+                        <TextField onChange={(e) => setTrackArtist(e.target.value)} value={trackArtist} label="Введите исполнителя" />
+                        <TextField onChange={(e) => setTrackText(e.target.value)} value={trackText} multiline label="Введите текс песни" />
                     </Grid>
                 )}
                 {activeStep === 1 && (
-                    <FileUpload accept="image/*">
+                    <FileUpload accept="image/*" setFile={setImage}>
                         <Button
                             color="primary"
                             variant="contained"
                         >
                             Загрузить
                         </Button>
+                        {image && <img src={image} />}
                     </FileUpload>
                 )}
                 {activeStep === 2 && (
-                    <FileUpload accept="audio/*">
+                    <FileUpload accept="audio/*" setFile={setAudio}>
                         <Button
                             color="primary"
                             variant="contained"
@@ -61,9 +75,15 @@ const Сreate = () => {
                 >
                     Назад
                 </Button>
-                <Button variant="contained" color="primary" onClick={next}>
-                    Далее
-                </Button>
+                { activeStep !== 2 ?
+                    <Button variant="contained" color="primary" onClick={next}>
+                        Далее
+                    </Button>
+                    :
+                    <Button variant="contained" color="primary" onClick={send}>
+                        Добавить
+                    </Button>
+                }
             </Grid>
         </MainLayout>
     );

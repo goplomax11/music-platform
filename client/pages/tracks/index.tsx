@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import {Grid} from '@material-ui/core';
 import { TrackList } from '../../components/TrackList';
 import { useRouter } from 'next/router';
+import Player from '../../components/Player';
 
 const server = 'localhost:5000/'
 

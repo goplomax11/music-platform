@@ -1,5 +1,3 @@
-
-
 export interface ITrack {
     _id : string,
     name : string,
@@ -9,8 +7,6 @@ export interface ITrack {
     image? : string,
     audio? : string,
     comments : String[] | [],
-
-
 }
 
  export interface TrackListProps {

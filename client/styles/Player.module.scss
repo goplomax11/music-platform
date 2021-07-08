@@ -1,0 +1,38 @@
+.player {
+    width:100%;
+    height: 60px;
+    position: fixed;
+    background-color: #C4C4C4;
+    bottom:0;
+    padding: 0 10px;
+    align-items: center;
+    display:flex;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    min-width: 200px;
+}
+.detailsName {
+    font-size: 25px;
+    flex-wrap:nowrap;
+    word-wrap: normal ;
+}
+.detailsArtist {
+    color: #767070;
+
+}
+.progressContainer {
+    display: flex;
+    align-items: center;
+}
+.timing {
+    position: absolute;
+}
+.volume {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px;
+}
